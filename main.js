@@ -68,7 +68,7 @@ let friendAppInit = () => {
             for (let i = 0, len = data.length; i < len; i++) {
                 let userItem = data[i];
                 usersContent += "<div class='main-content__item'>";
-                usersContent += "<figure class='content-item-thumb'><img src='"+ (userItem.picture.large ? userItem.picture.large : "") + "' alt='user-thumb'></figure>";
+                usersContent += "<figure class='content-item-thumb " + (userItem.gender === "male" ? "content-item-thumb-male" : "content-item-thumb-female") + "'><img src='"+ (userItem.picture.large ? userItem.picture.large : "") + "' alt='user-thumb'></figure>";
                 usersContent += "<h3 class='content-item-name'>" + (userItem.name.first ? userItem.name.first : "") + " " + (userItem.name.last ? userItem.name.last : "") + "</h3>";
                 usersContent += "<div class='content-item-age'>Age: " + (userItem.dob.age ? userItem.dob.age : "") + "</div>";
                 usersContent += "<div class='content-item-phone'>Phone: " + (userItem.phone ? "<a href='tel:" + userItem.phone + "'>" + userItem.phone + "</a>" : "") + "</div>";
