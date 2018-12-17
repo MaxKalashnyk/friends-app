@@ -78,7 +78,7 @@ p {
 
 /* =========== MAIN STYLES ============= */
 
-header {
+header, footer {
     background-color: #54a0ff;
     padding: 1em 0;
     text-align: center;
@@ -178,3 +178,12 @@ header {
     padding: .5em 1em;
     background-color: #1dd1a1;
 }
+
+/* footer */
+
+footer p,
+a.footer-link
+{
+    color: #c8d6e5;
+}
+
