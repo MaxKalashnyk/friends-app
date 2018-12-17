@@ -136,12 +136,12 @@ header, footer {
     font-size: .875em;
 }
 
-.main-content__item:nth-child(even) .content-item-thumb img {
-    border: 2px solid #feca57;
+.content-item-thumb-male img {
+    border: 2px solid #54a0ff;
 }
 
-.main-content__item:nth-child(odd) .content-item-thumb img {
-    border: 2px solid #1dd1a1;
+.content-item-thumb-female img {
+    border: 2px solid #ee5253;
 }
 
 .content-item-thumb {
@@ -186,4 +186,3 @@ a.footer-link
 {
     color: #c8d6e5;
 }
-
