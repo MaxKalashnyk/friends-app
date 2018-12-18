@@ -530,3 +530,13 @@ a.footer-link
         margin-left: 0;
     }
 }
+@media screen and (max-width: 350px) {
+
+    .user-search {
+        width: 90%;
+    }
+    .main-filter-wrap {
+        flex-direction: column;
+    }
+    
+}
