@@ -118,6 +118,7 @@ p {
 .main {
     display: flex;
     min-height: calc(100vh - 102px);
+    position: relative;
 }
 
 /* sidebar styles */
@@ -163,6 +164,7 @@ p {
     display: flex;
     flex-wrap: wrap;
     margin-left: -2%;
+    position: relative;
 }
 
 .main-content__item {
@@ -355,6 +357,21 @@ a.footer-link
 
 /* loader */
 
+.loader-container {
+    display: none;
+    position: fixed;
+    background-color: #fff;
+    z-index: 150;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.loader-container.active {
+    display: block;
+}
+
 .loader {
     width: 49px;
     height: 49px;
@@ -367,6 +384,10 @@ a.footer-link
     -ms-animation: cssload-scale 1035ms infinite linear;
     -webkit-animation: cssload-scale 1035ms infinite linear;
     -moz-animation: cssload-scale 1035ms infinite linear;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
 }
 
 

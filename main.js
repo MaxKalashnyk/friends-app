@@ -12,8 +12,16 @@ let friendAppInit = () => {
         header: '.header',
         sidebarMain: '.main-sidebar',
         closeFilterButton: '.main-filter__close',
-        openFilterIcon: '.filter-open-icon'
+        openFilterIcon: '.filter-open-icon',
+        loaderWrap: '.loader-container'
     };
+
+    /* Getting UI elements */
+
+    for (let key in UIElements) {
+        UIElements[key] = document.querySelector(UIElements[key]);
+    }
+
     const radioFilter = document.querySelectorAll('.radio-filter');
 
     const svgIcons = {
@@ -23,12 +31,6 @@ let friendAppInit = () => {
     };
     
     const urlAPI = "https://randomuser.me/api/?nat=de&results=12&page=";
-
-    /* Getting UI elements */
-
-    for (let key in UIElements) {
-        UIElements[key] = document.querySelector(UIElements[key]);
-    }
 
     /* other variables */
 
@@ -90,6 +92,7 @@ let friendAppInit = () => {
             }
 
             UIElements.userContentWrap.insertAdjacentHTML('afterbegin', usersContent);
+            UIElements.loaderWrap.classList.remove('active');
         }
 
     };
@@ -98,10 +101,20 @@ let friendAppInit = () => {
 
     let getUsers = (page = 1) => {
         let dataURL = urlAPI + page;
+        UIElements.loaderWrap.classList.add('active');
         fetch(dataURL)
             .then((response) => response.json())
+            .catch(() => {
+                console.error('Oops! Problems with friends getting...');
+            })
             .then((data) => createUsersList(data))
-            .then((data) => renderUsersList(data));
+            .catch(() => {
+                console.error('Oops! Problems with friends list...');
+            })
+            .then((data) => renderUsersList(data))
+            .catch(() => {
+                console.error('Oops! Problems with friends list rendering...');
+            });
     };
 
     /* init getting data function */
@@ -176,7 +189,6 @@ let friendAppInit = () => {
         else if (a < b) return 1;
         return 0;
     };
-
 
     /* change handler for filter sidebar using event delegation */
 
@@ -265,17 +277,14 @@ let friendAppInit = () => {
     /* adding click event listener to filter switching view */
 
     UIElements.closeFilterButton.addEventListener('click', () => {
-
         UIElements.sidebarMain.classList.add('main-sidebar-closed');
         UIElements.openFilterIcon.classList.add('filter-open-icon-visible');
-
     });
 
     UIElements.openFilterIcon.addEventListener('click', () => {
         UIElements.sidebarMain.classList.remove('main-sidebar-closed');
         UIElements.openFilterIcon.classList.remove('filter-open-icon-visible');
     });
-
 
 };
 
