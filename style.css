@@ -183,6 +183,10 @@ p {
     margin-bottom: .5em;
 }
 
+.content-item:last-child {
+    margin-bottom: 0;
+}
+
 .content-item-thumb-male img {
     border: 2px solid var(--section-color);
 }
