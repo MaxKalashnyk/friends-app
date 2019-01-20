@@ -1,6 +1,6 @@
 # Social frends search page "Friends App"
 
-Go to [Demo](https://kalash14.github.io/frogger-game/)
+Go to [Demo](https://kalash14.github.io/friends-app/)
 
 It was the last task from advanced topic in [Kottans](https://github.com/kottans/) frontend [course](https://github.com/Kottans/frontend)
 
